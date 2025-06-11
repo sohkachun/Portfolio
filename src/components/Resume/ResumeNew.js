@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Particle from "../Particle";
-import pdfDS from "../../Assets/../Assets/casey_resume.pdf";
-import pdfDA from "../../Assets/../Assets/casey_resume.pdf";
+import pdfds from "../../Assets/../Assets/casey_resume.pdf";
+import pdfda from "../../Assets/../Assets/resume_1.pdf";
 import { AiOutlineDownload } from "react-icons/ai";
 import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
@@ -20,41 +20,43 @@ function ResumeNew() {
     <div>
       <Container fluid className="resume-section">
         <Particle />
-
-        {/* Data Science Resume */}
-        <Row className="text-center mb-3">
-          <Col>
-            <h2 className="purple">Data Science Resume</h2>
-            <Button variant="primary" href={pdfDS} target="_blank" style={{ maxWidth: "250px" }}>
-              <AiOutlineDownload />
-              &nbsp;Download
-            </Button>
-          </Col>
-        </Row>
-        <Row className="resume mb-5">
-          <Col className="d-flex justify-content-center">
-            <Document file={pdfDS}>
-              <Page pageNumber={1} scale={width > 786 ? 1.2 : 0.6} />
-            </Document>
-          </Col>
+        <Row style={{ justifyContent: "center", position: "relative" }}>
+          <h2 className="purple">Data Science Resume</h2>
+          <Button
+            variant="primary"
+            href={pdfds}
+            target="_blank"
+            style={{ maxWidth: "250px" }}
+          >
+            <AiOutlineDownload />
+            &nbsp;Download CV
+          </Button>
         </Row>
 
-        {/* Data Analyst Resume */}
-        <Row className="text-center mb-3">
-          <Col>
-            <h2 className="purple">Data Analyst Resume</h2>
-            <Button variant="primary" href={pdfDA} target="_blank" style={{ maxWidth: "250px" }}>
-              <AiOutlineDownload />
-              &nbsp;Download
-            </Button>
-          </Col>
+        <Row className="data science resume">
+          <Document file={pdfds} className="d-flex justify-content-center">
+            <Page pageNumber={1} scale={width > 786 ? 1.7 : 0.6} />
+          </Document>
         </Row>
-        <Row className="resume">
-          <Col className="d-flex justify-content-center">
-            <Document file={pdfDA}>
-              <Page pageNumber={1} scale={width > 786 ? 1.2 : 0.6} />
-            </Document>
-          </Col>
+
+        <h2 className="purple">Data Analyst Resume</h2>
+        <Row style={{ justifyContent: "center", position: "relative" }}>
+          <Button
+            variant="primary"
+            href={pdfda}
+            target="_blank"
+            style={{ maxWidth: "250px" }}
+          >
+            <AiOutlineDownload />
+            &nbsp;Download CV
+          </Button>
+        </Row>
+
+
+        <Row className="data analyst resume">
+          <Document file={pdfda} className="d-flex justify-content-center">
+            <Page pageNumber={1} scale={width > 786 ? 1.7 : 0.6} />
+          </Document>
         </Row>
       </Container>
     </div>
